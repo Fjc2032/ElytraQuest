@@ -1,0 +1,13 @@
+name: ElytraQuest
+version: '1.0-beta'
+main: dev.Fjc.elytraQuest.ElytraQuest
+api-version: '1.20'
+prefix: ElytraQuest
+load: STARTUP
+authors: [ Fjc ]
+description: Quest API interface for elytras.
+
+commands:
+  elytraquestapi-reload:
+    description: Reloads the configuration for the elytra quest API interface.
+    permission: odailyquests.admin
