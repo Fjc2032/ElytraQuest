@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 
 public class ElytraQuestListener extends PlayerProgressor implements Listener {
@@ -50,13 +51,17 @@ public class ElytraQuestListener extends PlayerProgressor implements Listener {
 
     @EventHandler
     public void onQuestComplete(QuestCompletedEvent event) {
-        Random random = new Random();
-        Player player = event.getPlayer();
 
-        double percentRange = random.nextDouble();
+        //New check to make sure the quest is actually elytra
+        if (Objects.equals(event.getAbstractQuest().getQuestType(), "ELYTRA")) {
+            Random random = new Random();
+            Player player = event.getPlayer();
 
-        if (percentRange <= chance) {
-            Bukkit.dispatchCommand(player, "mm mobs egg get Terrorwing");
+            double percentRange = random.nextDouble();
+
+            if (percentRange <= chance) {
+                Bukkit.dispatchCommand(player, "mm mobs egg get Terrorwing");
+            }
         }
 
     }
